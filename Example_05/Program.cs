@@ -17,13 +17,14 @@ void ShowArray(int [] array){
     }
     Console.WriteLine();
 }
-int [] ReverseArray(int [] array){
-    int l = array.Length;
-    for(int i = 0; i<l/2; i++){
-        int temp = array[i];
-        array[i] = array[i] * array[l-1-i];
-        array[l-1-i] = temp;
-
+int [] MultArray(int [] array){
+    int L = array.Length;
+    int count = 1;
+    for(int i = 1; i<L/2; i++){
+         int temp = array[i];
+         array[i] = array[L-1-i];
+         array[L-1-i] = temp;
+         count *= temp;
     }
     return array;
 }
@@ -35,6 +36,6 @@ Console.Write("Enter array max: ");
 int max = Convert.ToInt32(Console.ReadLine());
 int [] array = CreateArray(size,min,max);
 ShowArray(array);
-int [] revarray = ReverseArray(array);
+int [] revarray = MultArray(array);
 ShowArray(revarray);
 
